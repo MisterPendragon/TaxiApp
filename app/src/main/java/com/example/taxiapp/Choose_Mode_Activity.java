@@ -29,6 +29,7 @@ public class Choose_Mode_Activity extends AppCompatActivity {
        passengerImageView.startAnimation(animation);
 
         startActivity(new Intent(Choose_Mode_Activity.this,PassengerSignIn.class));
+        overridePendingTransition(R.anim.zoom_in,R.anim.static_anim);
     }
 
     public void goToDriver(View view) {
@@ -37,5 +38,6 @@ public class Choose_Mode_Activity extends AppCompatActivity {
 
 
         startActivity(new Intent(Choose_Mode_Activity.this,DriverSignIn.class));
+        overridePendingTransition(R.anim.zoom_in,R.anim.static_anim);
     }
 }

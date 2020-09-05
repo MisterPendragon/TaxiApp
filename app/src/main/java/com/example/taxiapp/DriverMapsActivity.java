@@ -82,7 +82,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
         settingsClient = LocationServices.getSettingsClient(this);
 
         signOutButton=findViewById(R.id.SignOutId);
-        settingsButtonMaps=findViewById(R.id.SettingsId);
+
 
         buildLocationRequest();
         buildLocationCallBack();

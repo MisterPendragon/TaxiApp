@@ -1,9 +1,9 @@
 package com.example.taxiapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -21,6 +21,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                     e.printStackTrace();
                 } finally {
                 startActivity(new Intent(SplashScreenActivity.this, Choose_Mode_Activity.class));
+                    overridePendingTransition(R.anim.zoom_in,R.anim.static_anim);
                 }
             }
         };

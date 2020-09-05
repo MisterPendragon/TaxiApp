@@ -16,14 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true">
 
-        <Button
-            android:id="@+id/SettingsId"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#CC050000"
-            android:text="Settings"
-            android:textColor="@android:color/background_light" />
+
 
         <Button
             android:id="@+id/SignOutId"

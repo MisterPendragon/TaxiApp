@@ -22,7 +22,7 @@ public class PassengerSignIn extends AppCompatActivity {
     private static final String TAG ="PassengerSignIn";
 
     private EditText email;
-    private EditText name;
+
     private EditText password;
     private  EditText confirmPassword;
     private Button create;
@@ -41,11 +41,12 @@ public class PassengerSignIn extends AppCompatActivity {
         // Условие чтобы сразу войти в аккаунт
         if(auth.getCurrentUser()!= null) {
             startActivity(new Intent(PassengerSignIn.this,PassengerMapsActivity.class));
+            overridePendingTransition(R.anim.zoom_in,R.anim.static_anim);
         }
 
         // НАХОДИМ ПО ID
         email=findViewById(R.id.editTextEmailAddressUser);
-        name=findViewById(R.id.editTextNameUser);
+
         password=findViewById(R.id.editTextPasswordUser);
         confirmPassword=findViewById(R.id.editTextConfirmPasswordUser);
         create=findViewById(R.id.createButtonUser);
@@ -64,13 +65,7 @@ public class PassengerSignIn extends AppCompatActivity {
             return  false;
         } else return true;
     }
-    private boolean validateName() {
-        String nameInput = name.getText().toString().trim();
-        if(nameInput.isEmpty()){
-            name.setError("Please input your name");
-            return  false;
-        } else return true;
-    }
+
     private boolean validatePassword() {
         String passwordInput = password.getText().toString().trim();
         if(passwordInput.isEmpty()){
@@ -95,18 +90,20 @@ public class PassengerSignIn extends AppCompatActivity {
 
     // МЕТОДЫ ДЛЯ СОЗДАНИЯ ИЛИ ЗАЛОГИНИВАНИЯ
     public void createNewAccountUser(View view) {
-        if (!validateEmail()|!validateName()|!validatePassword()){
+        if (!validateEmail()|!validatePassword()){
             return; // Если валидация не прошла то указываем на ошибки!
         }
 
         if(isLoginModeActive){
             codeFromFireBase2(); // метод для входа в аккаунт
             startActivity(new Intent(PassengerSignIn.this,PassengerMapsActivity.class)); // Переход в гугл карты
-        } else if (!validateEmail()|!validateName()|!validatePassword()|!validateConfirmPassword()){
+            overridePendingTransition(R.anim.zoom_in,R.anim.static_anim);
+        } else if (!validateEmail()|!validatePassword()|!validateConfirmPassword()){
             return; // Если валидация не прошла то указываем на ошибки!
         } else codeFromFireBase1(); // метод для создания юзера в FireBase
 
         startActivity(new Intent(PassengerSignIn.this,PassengerMapsActivity.class));
+        overridePendingTransition(R.anim.zoom_in,R.anim.static_anim);
 
     }
 

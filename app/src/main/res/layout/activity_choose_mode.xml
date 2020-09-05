@@ -18,7 +18,7 @@
         android:layout_marginTop="250dp"
         android:clickable="true"
         android:onClick="goToDriver"
-        android:src="@drawable/ic_taxi" />
+        android:src="@drawable/driver" />
 
     <ImageView
         android:id="@+id/passengerImageView"
@@ -28,19 +28,19 @@
         android:layout_marginTop="250dp"
         android:clickable="true"
         android:onClick="goToPassenger"
-        android:src="@drawable/ic_passenger"
+        android:src="@drawable/human"
         android:visibility="visible" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="396dp"
-        android:layout_height="103dp"
+        android:layout_height="111dp"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="107dp"
         android:gravity="center|center_horizontal"
         android:text="Who are you ?"
         android:textColor="#000000"
-        android:textSize="40sp"
+        android:textSize="36sp"
         android:textStyle="bold|normal"
         app:layout_constraintBottom_toTopOf="@+id/passengerImageView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,8 +51,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="396dp"
-        android:layout_height="31dp"
+        android:layout_width="397dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="600dp"
         android:gravity="center_horizontal"
         android:text="Choose one of them"

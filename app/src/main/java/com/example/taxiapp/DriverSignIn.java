@@ -23,7 +23,7 @@ private static final String TAG ="DriverSignIn";
 
 
     private EditText email;
-    private EditText name;
+
     private EditText password;
     private  EditText confirmPassword;
     private Button create;
@@ -41,11 +41,12 @@ private static final String TAG ="DriverSignIn";
         // Условие чтобы сразу войти в аккаунт
         if(auth.getCurrentUser()!= null) {
             startActivity(new Intent(DriverSignIn.this,DriverMapsActivity.class));
+            overridePendingTransition(R.anim.zoom_in,R.anim.static_anim);
         }
 
         // НАХОДИМ ПО ID
         email=findViewById(R.id.editTextEmailAddress);
-        name=findViewById(R.id.editTextName);
+
         password=findViewById(R.id.editTextPassword);
         confirmPassword=findViewById(R.id.editTextConfirmPassword);
         create=findViewById(R.id.createButton);
@@ -67,13 +68,7 @@ private static final String TAG ="DriverSignIn";
             return  false;
         } else return true;
     }
-    private boolean validateName() {
-        String nameInput = name.getText().toString().trim();
-        if(nameInput.isEmpty()){
-            name.setError("Please input your name");
-            return  false;
-        } else return true;
-    }
+
     private boolean validatePassword() {
         String passwordInput = password.getText().toString().trim();
         if(passwordInput.isEmpty()){
@@ -98,17 +93,19 @@ private static final String TAG ="DriverSignIn";
 
 // МЕТОДЫ ДЛЯ СОЗДАНИЯ ИЛИ ЗАЛОГИНИВАНИЯ
     public void createNewAccount(View view) {
-        if (!validateEmail()|!validateName()|!validatePassword()){
+        if (!validateEmail()|!validatePassword()){
             return; // Если валидация не прошла то указываем на ошибки!
         }
 
         if(isLoginModeActive){
             codeFromFireBase2(); // метод для входа в аккаунт
             startActivity(new Intent(DriverSignIn.this,DriverMapsActivity.class)); // Переход в гугл карты
-        } else if (!validateEmail()|!validateName()|!validatePassword()|!validateConfirmPassword()){
+            overridePendingTransition(R.anim.zoom_in,R.anim.static_anim);
+        } else if (!validateEmail()|!validatePassword()|!validateConfirmPassword()){
                 return; // Если валидация не прошла то указываем на ошибки!
         } else codeFromFireBase1(); // метод для создания юзера в FireBase
         startActivity(new Intent(DriverSignIn.this,DriverMapsActivity.class)); // Переход в гугл карты
+        overridePendingTransition(R.anim.zoom_in,R.anim.static_anim);
 
     }
 

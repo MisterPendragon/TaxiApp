@@ -99,7 +99,7 @@ public class PassengerMapsActivity extends FragmentActivity implements OnMapRead
         settingsClient = LocationServices.getSettingsClient(this);
         searchButton = findViewById(R.id.SearchId);
         signOutButton=findViewById(R.id.SignOutId);
-        settingsButtonMaps=findViewById(R.id.SettingsId);
+
         driversGeoFire = FirebaseDatabase.getInstance().getReference().child("driversGeoFire");
 
         buildLocationRequest();
